@@ -39,7 +39,8 @@ import './app.css';
 export default class App extends Component {
 
 	state = {
-		showRandomPlanet: true
+		showRandomPlanet: true,
+		selectedPerson: null
 	};
 
 	toggleRandomPlanet = () => {
@@ -50,9 +51,18 @@ export default class App extends Component {
 		});
 	};
 
+	onPersonSelected = (id) => {
+		this.setState({
+			selectedPerson: id
+		})
+		console.log(id);
+	}
+
   	render() {
 
-		const planet = this.state.showRandomPlanet ?
+		const { showRandomPlanet, selectedPerson } = this.state;
+
+		const planet = showRandomPlanet ?
 		<RandomPlanet/> :
 		null;
 
@@ -69,10 +79,10 @@ export default class App extends Component {
 
 				<div className="row mb2">
 				<div className="col-md-6">
-					<ItemList />
+					<ItemList onItemSelected={this.onPersonSelected}/>
 				</div>
 				<div className="col-md-6">
-					<PersonDetails />
+					<PersonDetails personId={selectedPerson}/>
 				</div>
 				</div>
 			</div>
