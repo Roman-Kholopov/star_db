@@ -4,3 +4,4 @@
 4. На ветке **create-spinner-component** создан спиннер загрузки.
 5. На ветке **create_logic_for_spinner** написана логика для копонента `<Spinner/>`, произведён рефакторинг `<RandomPlanet/>`.
 6. На ветке **create_error-indicator_component** создан новый компонент `<ErrorIndicator/>`. В `<RandomPlanet/>` написана логика для отлавливания ошибки и отображения компонента с ошибкой.
+7. На ветке **lifecycle-component** просто изучал жизненный цикл компонента + подключил **axios** для практики.
