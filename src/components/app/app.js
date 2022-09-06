@@ -1,42 +1,13 @@
-// import React from 'react';
-
-// import Header from '../header';
-// import RandomPlanet from '../random-planet';
-// import ItemList from '../item-list';
-// import PersonDetails from '../person-details';
-
-// import './app.css';
-
-// const App = () => {
-//   return (
-//     <div>
-//       <Header />
-//       <RandomPlanet />
-
-//       <div className="row mb2">
-//         <div className="col-md-6">
-//           <ItemList />
-//         </div>
-//         <div className="col-md-6">
-//           <PersonDetails />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;
-
 import React, { Component } from 'react';
-
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
+import ItemDetails from '../item-details';
 import ErrorButton from '../error-button';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import SwapiService from '../../services/swapi-service';
+import Row from '../row';
 
 import './app.css';
 
@@ -85,10 +56,35 @@ export default class App extends Component {
 		<RandomPlanet/> :
 		null;
 
+		const { getPerson,
+				getStarship,
+				getPersonImage,
+				getStarshipImage } = this.swapiService;
+
+		const personDetails = (
+			<ItemDetails 
+				itemId={11}
+				getData={getPerson}
+				getImageUrl={getPersonImage}
+				/>
+		)
+
+		const starshipDetails = (
+			<ItemDetails 
+				itemId={5}
+				getData={getStarship}
+				getImageUrl={getStarshipImage}
+				/>
+		)
+
 		return (
 			<div className="stardb-app">
 				<Header />
-				{ planet }
+					<Row
+						left={personDetails}
+						right={starshipDetails}
+					/>
+				{/* { planet }
 
 				<div className="row mb2 button-row">
 					<button
@@ -99,7 +95,7 @@ export default class App extends Component {
 					<ErrorButton />
 				</div>
 
-				<PeoplePage/>
+				<PeoplePage/> */}
 
 				{/* <div className="row mb2">
 					<div className="col-md-6">
