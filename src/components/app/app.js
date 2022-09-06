@@ -40,7 +40,8 @@ export default class App extends Component {
 
 	state = {
 		showRandomPlanet: true,
-		selectedPerson: null
+		selectedPerson: 5 // Это исправить !!!
+		// selectedPerson: null
 	};
 
 	toggleRandomPlanet = () => {
@@ -55,7 +56,9 @@ export default class App extends Component {
 		this.setState({
 			selectedPerson: id
 		})
-		console.log(id);
+		// console.log(id);
+
+		console.log(this.state.selectedPerson);
 	}
 
   	render() {
