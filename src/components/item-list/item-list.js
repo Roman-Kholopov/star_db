@@ -30,7 +30,8 @@ export default class ItemList extends Component {
 		return arr.slice(0, 5).map((item) => {
 			const { id } = item;
 
-			const label = this.props.renderItems(item);
+			// const label = this.props.renderItems(item);
+			const label = this.props.children(item);
 			return (
 				<li className="list-group-item"
 					key={id}
