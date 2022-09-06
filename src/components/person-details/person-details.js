@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
+import ErrorButton from '../error-button';
 
 import './person-details.css';
 
@@ -12,25 +13,31 @@ export default class PersonDetails extends Component {
 	state = {
 		person: null,
 		loading: true,
-		error: false
+		error: false,
+		// hasError: false
 	};
 
 	componentDidMount() {
-		console.log('componentDidMount');
+		// console.log('componentDidMount');
 		this.updatePerson();
 	}
 
-	componentDidUpdate(prevProps) {
-		console.log('componentDidUpdate');
-		console.log(prevProps);
+	componentDidUpdate(prevProps) { // Возможно нужно дописать тут
+		// console.log('componentDidUpdate');
+		// console.log(prevProps);
 
 		if (this.props.personId !== prevProps.personId) {
 			this.updatePerson();
 		}
 	}
 
+	// componentDidCatch() {
+	// 	console.log('componentDidCatch');
+	// 	this.setState({hasError: true})
+	// }
+
 	onPersonLoaded = (person) => {
-		console.log('onPersonLoaded');
+		// console.log('onPersonLoaded');
 		
 		this.setState({
 			person,
@@ -44,11 +51,11 @@ export default class PersonDetails extends Component {
 		// 	}
 		// })
 
-		console.log(this.state.loading)
+		// console.log(this.state.loading)
 	}
 
 	onError = (err) => {
-		console.log('onError');
+		// console.log('onError');
 
 		this.setState({
 			error: true,
@@ -57,9 +64,9 @@ export default class PersonDetails extends Component {
 	}
 
 	updatePerson() {
-		console.log('updatePerson');
+		// console.log('updatePerson');
 		const { personId } = this.props;
-		console.log(personId);
+		// console.log(personId);
 		if(!personId) {
 			return;
 		}
@@ -72,7 +79,11 @@ export default class PersonDetails extends Component {
 
 	render() {
 
-		const { person, loading, error } = this.state;
+		const { person, loading, error, hasError } = this.state;
+
+		// if(hasError) {
+		// 	return <ErrorIndicator/>
+		// }
 
 		// const hasData = !(loading || error);
 
@@ -113,6 +124,7 @@ export default class PersonDetails extends Component {
 							<span>{eyeColor}</span>
 						</li>
 					</ul>
+					<ErrorButton/>
 				</div>
 			</div>
 		)
