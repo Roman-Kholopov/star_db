@@ -101,11 +101,12 @@ export default class App extends Component {
 
 				<PeoplePage/>
 
-				<div className="row mb2">
+				{/* <div className="row mb2">
 					<div className="col-md-6">
 						<ItemList onItemSelected={this.onPersonSelected}
 							getData={this.swapiService.getAllPlanets}
-						/>
+							renderItems={(item) => (<span>{item.name}<button>!</button></span>)}/>
+
 					</div>
 					<div className="col-md-6">
 						<PersonDetails personId={selectedPerson}/>
@@ -116,12 +117,13 @@ export default class App extends Component {
 					<div className="col-md-6">
 						<ItemList onItemSelected={this.onPersonSelected}
 							getData={this.swapiService.getAllStarships}
-						/>
+							renderItems={(item) => item.name}/>
+
 					</div>
 					<div className="col-md-6">
 						<PersonDetails personId={selectedPerson}/>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}
