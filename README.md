@@ -15,3 +15,4 @@
 15. На ветке **cloning_elements** сделаны карточки с разными сущностями.
 16. На ветке **cloning_element_1** ...
 17. **higher_order_components** использован компонент высшего порядка (папка hoc-helpers).
+18. **hoc-composition** sw-components.
