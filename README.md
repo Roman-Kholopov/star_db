@@ -16,3 +16,4 @@
 16. На ветке **cloning_element_1** ...
 17. **higher_order_components** использован компонент высшего порядка (папка hoc-helpers).
 18. **hoc-composition** sw-components.
+19. **use_context** swapi-service-context
