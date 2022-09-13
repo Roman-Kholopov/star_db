@@ -14,3 +14,4 @@
 14. На ветке **children** используется `this.props.children` в новом компоненте `<ErrorBoundry/>`, который теперь служит обёрткой для `<PersonDetails/>`.
 15. На ветке **cloning_elements** сделаны карточки с разными сущностями.
 16. На ветке **cloning_element_1** ...
+17. **higher_order_components** использован компонент высшего порядка (папка hoc-helpers).
