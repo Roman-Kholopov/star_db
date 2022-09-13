@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/swapi-service';
-import Spinner from '../spinner';
-import ErrorIndicator from '../error-indicator';
 import ErrorButton from '../error-button';
 
 import './item-details.css';
@@ -119,7 +117,7 @@ export default class ItemDetails extends Component {
 		}
 
 		// const { id, name, gender, birthYear, eyeColor } = this.state.item;
-		const { id, name, gender, birthYear, eyeColor } = item;
+		const { name } = item;
 
 
 		// const content = <PersonView person={this.state.person}/>;
