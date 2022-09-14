@@ -18,3 +18,4 @@
 18. **hoc-composition** sw-components.
 19. **use_context** swapi-service-context.
 20. **hoc_context** StarshipDetails, PlanetDetails, StarshipDetails.
+21. На ветке **dynamic_context_switch** реализована кнопка переключения сервисов, из которых приходят данные.

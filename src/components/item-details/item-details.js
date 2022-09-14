@@ -24,29 +24,22 @@ export default class ItemDetails extends Component {
 	state = {
 		person: null,
 		image: null
-		// loading: true,
-		// error: false,
-		// hasError: false
 	};
 
 	componentDidMount() {
-		// console.log('componentDidMount');
 		this.updateItem();
 	}
 
-	componentDidUpdate(prevProps) { // Возможно нужно дописать тут
-		// console.log('componentDidUpdate');
-		// console.log(prevProps);
-
-		if (this.props.itemId !== prevProps.itemId) {
+	componentDidUpdate(prevProps) {
+		if (this.props.itemId !== prevProps.itemId || 
+			this.props.getData !== prevProps.getData ||
+			this.props.getImageUrl !== prevProps.getImageUrl) {
 			this.updateItem();
 		}
 	}
 
 	updateItem() {
-		// console.log('updatePerson');
 		const { itemId, getData } = this.props;
-		// console.log(itemId);
 		if(!itemId) {
 			return;
 		}
@@ -54,42 +47,19 @@ export default class ItemDetails extends Component {
 		getData(itemId)
 		.then(this.onItemLoaded)
 		.catch(this.onError);
-
-		// this.swapiService
-		// 	.getPerson(itemId)
-		// 	.then(this.onPersonLoaded)
-		// 	.catch(this.onError);
-
 	}
 
-	// componentDidCatch() {
-	// 	console.log('componentDidCatch');
-	// 	this.setState({hasError: true})
-	// }
 
 	onItemLoaded = (item) => {
-		// console.log('onPersonLoaded');
 		const { getImageUrl } = this.props;
 		
 		this.setState({
 			item,
 			image: getImageUrl(item)
-			// loading: false
 		})
-
-		// this.setState(( state ) => {
-		// 	return {
-		// 		person,
-		// 		loading: !state.loading
-		// 	}
-		// })
-
-		// console.log(this.state.loading)
 	}
 
 	onError = (err) => {
-		// console.log('onError');
-
 		this.setState({
 			error: true,
 			loading: false
