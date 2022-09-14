@@ -44,7 +44,7 @@ const PlanetList = withSwapiService(
                             withChildFunction(ItemList, renderName)),
                         mapPlanetMethodToProps);
 
-const StarchipList = withSwapiService(
+const StarshipList = withSwapiService(
                         withData(
                             withChildFunction(ItemList, renderModelAndName)),
                         mapStarshipMethodToProps);
@@ -52,5 +52,5 @@ const StarchipList = withSwapiService(
 export {
     PersonList,
     PlanetList,
-    StarchipList
+    StarshipList
 };
