@@ -49,7 +49,7 @@ const PlanetDetails = ({ itemId }) => {
     );
 };
 
-const StarchipDetails = ({ itemId }) => {
+const StarshipDetails = ({ itemId }) => {
     return (
         <SwapiServiceConsumer>
             {
@@ -73,5 +73,5 @@ const StarchipDetails = ({ itemId }) => {
 export {
     PersonDetails,
     PlanetDetails,
-    StarchipDetails
+    StarshipDetails
 };
