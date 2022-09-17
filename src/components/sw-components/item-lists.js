@@ -1,16 +1,10 @@
 import React from "react";
 import ItemList from "../item-list";
-import { withData, withSwapiService } from "../hoc-helpers";
-
-const withChildFunction = (Wrapped, fn) => {
-    return (props) => {
-        return (
-            <Wrapped {...props}>
-                {fn}
-            </Wrapped>
-        )
-    }
-};
+import { 
+    withData,
+    withSwapiService,
+    compose,
+    withChildFunction } from "../hoc-helpers";
 
 const renderName = ({ name }) => <span>{name}</span>;
 
@@ -34,20 +28,28 @@ const mapStarshipMethodToProps = (swapiService) => {
     }
 }
 
-const PersonList = withSwapiService(
-                        withData(
-                            withChildFunction(ItemList, renderName)),
-                        mapPersonMethodToProps);
+// const PersonList = withSwapiService(mapPersonMethodToProps)(
+//                         withData(
+//                             withChildFunction(renderName)(
+//                                 ItemList)));
 
-const PlanetList = withSwapiService(
-                        withData(
-                            withChildFunction(ItemList, renderName)),
-                        mapPlanetMethodToProps);
+const PersonList = compose(
+                        withSwapiService(mapPersonMethodToProps),
+                        withData,
+                        withChildFunction(renderName)
+                    )(ItemList);
 
-const StarshipList = withSwapiService(
-                        withData(
-                            withChildFunction(ItemList, renderModelAndName)),
-                        mapStarshipMethodToProps);
+const PlanetList = compose(
+                        withSwapiService(mapPlanetMethodToProps),
+                        withData,
+                        withChildFunction(renderName)
+                    )(ItemList);
+
+const StarshipList = compose(
+                        withSwapiService(mapStarshipMethodToProps),
+                        withData,
+                        withChildFunction(renderModelAndName)
+                    )(ItemList);
 
 export {
     PersonList,
